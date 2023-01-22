@@ -20,7 +20,11 @@ const rend = async(name="") =>{
         typePokemons = allData.filter(element => element.types[0].type.name == name.toLowerCase())
         data = typePokemons[0]
      }else{
-        typePokemons = renderType(allData, data.types[0].type.name)
+         if(filterPokemons.length !== 0 ){
+            typePokemons = renderType(allData, data.types[0].type.name)
+        }else{
+            pokemonInfo.innerHTML += ` <p style ="font-weight:800; font-size:35px; color:red; ">NOT FOUND</p> `
+        }
      }
     console.log(types)
    
