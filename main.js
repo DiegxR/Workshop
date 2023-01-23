@@ -83,7 +83,7 @@ const rendPokemon = async (name) =>{
   
 const rendOthers = async(name, more="") =>{
 const rendData  = await renderData(name)
-const {filterPokemons, allData} = rendData
+const {filterPokemons} = rendData
 const arrays  = await rendArrays(name)
 const {typePokemons, data, types} = arrays
 
@@ -171,11 +171,15 @@ more.style.display = 'none'
 console.log(others.innerHTML)
 
 more.addEventListener('click', e =>{
+    more.style.backgroundColor = 'skyblue'
     if(next == 0){
         next = 4
     }
     const type = e.composedPath()[2].children[1].children[3].classList.value   
     rendOthers(type, next)
+    setTimeout(()=>{
+        more.style.backgroundColor = 'black'
+    },1500)
     next += 4;
 })
      
